@@ -50,7 +50,11 @@ src/
 └── java/com/example/clean_pedidos/service/
 └── ProductoServiceImplTest.java
 
+## 📸 Evidencia de ejecución de pruebas
 
+A continuación se muestra la ejecución exitosa de las pruebas unitarias:
+
+![Evidencia de pruebas](docs/build-test.PNG)
 ---
 
 ## ⚙️ Cómo ejecutar el proyecto
