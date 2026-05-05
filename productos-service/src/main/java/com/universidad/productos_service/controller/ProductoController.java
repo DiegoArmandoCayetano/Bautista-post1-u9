@@ -1,0 +1,39 @@
+package com.universidad.productos_service.controller;
+
+import com.universidad.productos_service.domain.Producto;
+import com.universidad.productos_service.service.ProductoService;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/productos")
+public class ProductoController {
+
+    private final ProductoService productoService;
+
+    public ProductoController(ProductoService productoService) {
+        this.productoService = productoService;
+    }
+
+    @PostMapping
+    public Producto crear(@RequestParam String nombre,
+                          @RequestParam Double precio,
+                          @RequestParam Integer stock) {
+        return productoService.crear(nombre, precio, stock);
+    }
+
+    @GetMapping("/{id}")
+    public Producto buscar(@PathVariable Long id) {
+        return productoService.buscarPorId(id);
+    }
+
+    @PutMapping("/{id}/stock")
+    public Producto actualizarStock(@PathVariable Long id,
+                                   @RequestParam Integer stock) {
+        return productoService.actualizarStock(id, stock);
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable Long id) {
+        productoService.eliminar(id);
+    }
+}
